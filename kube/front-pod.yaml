@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pdris-lab1-frontend
+  labels:
+    app: pdris-lab1-frontend
+spec:
+  containers:
+    - image: moiseevdi/pdris-lab1-frontend
+      name: pdris-lab1-frontend
+      ports:
+        - containerPort: 80

@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pdris-lab1-backend
+  labels:
+    app: pdris-lab1-backend
+spec:
+  containers:
+    - image: moiseevdi/pdris-lab1-backend
+      name: pdris-lab1-backend
+      ports:
+        - containerPort: 80
+      env:
+        - name: PORT
+          value: 80
+        - name: DB_HOST
+          value: db

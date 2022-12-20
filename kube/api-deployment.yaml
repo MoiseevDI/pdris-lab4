@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pdris-lab1-backend
+spec:
+  replicas: 2
+  minReadySeconds: 15
+  selector:
+    matchLabels:
+      app: pdris-lab1-backend
+  strategy:
+    type: RollingUpdate
+    rollingUpdate: 
+      maxUnavailable: 1
+      maxSurge: 1
+  template:
+    metadata:
+      labels:
+        app: pdris-lab1-backend
+    spec:
+      containers:
+        - image: moiseevdi/pdris-lab1-backend
+          imagePullPolicy: Always
+          name: pdris-lab1-backend
+          ports:
+            - containerPort: 80
+          env:
+            - name: PORT
+              value: "80"
+            - name: DB_HOST
+              value: db
